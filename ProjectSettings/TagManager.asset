@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Stats
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Player
   - Ground
   - Ignore
-  - 
-  - 
-  - 
+  - PlayerStats
+  - EnemyAttack
+  - Enemy
   - 
   - 
   - 
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1374105183
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3166621379
     locked: 0
