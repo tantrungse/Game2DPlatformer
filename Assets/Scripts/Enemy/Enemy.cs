@@ -14,4 +14,24 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        HurtSequence();
+        if (health <= 0)
+        {
+            DeathSequence();
+        }
+    }
+
+    public virtual void HurtSequence()
+    {
+
+    }
+
+    public virtual void DeathSequence()
+    {
+
+    }
 }

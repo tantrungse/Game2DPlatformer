@@ -21,6 +21,20 @@ public class PatrollingEnemy : Enemy
         Flip();
     }
 
+    public override void HurtSequence()
+    {
+        anim.SetTrigger("Hurt");
+    }
+
+    public override void DeathSequence()
+    {
+        anim.SetTrigger("Death");
+        speed = 0;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponentInChildren<PolygonCollider2D>().enabled = false;
+        rb.gravityScale = 0;
+    }
+
     private void Flip()
     {
         detectGround = Physics2D.OverlapCircle(groundCheck.position, radius, layerToCheck);

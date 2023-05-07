@@ -13,11 +13,13 @@ public class PlayerStats : MonoBehaviour
     private PlayerMoveControls playerMove;
     private Animator anim;
     public Image healthUI;
+    private PlayerAttackControls attackControls;
     void Start()
     {
         //health = maxHealth;
         playerMove = GetComponentInParent<PlayerMoveControls>();
         anim = GetComponentInParent<Animator>();
+        attackControls = GetComponentInParent<PlayerAttackControls>();
         health = PlayerPrefs.GetFloat("HealthKey", maxHealth);
         UpdateHealthUI();
     }
@@ -35,6 +37,7 @@ public class PlayerStats : MonoBehaviour
         if(canTakeDamage)
         {
             health -= damage;
+            attackControls.ResetAttack();
             anim.SetBool("Damage", true);
             playerMove.hasControl = false;
             UpdateHealthUI();

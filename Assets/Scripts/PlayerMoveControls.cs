@@ -20,7 +20,7 @@ public class PlayerMoveControls : MonoBehaviour
     public Transform leftPoint;
     public Transform rightPoint;
     private bool grounded = true;
-    private bool knockBack = false;
+    public bool knockBack = false;
     public bool hasControl = true;
 
     void Start()
