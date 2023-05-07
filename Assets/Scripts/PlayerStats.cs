@@ -15,9 +15,10 @@ public class PlayerStats : MonoBehaviour
     public Image healthUI;
     void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
         playerMove = GetComponentInParent<PlayerMoveControls>();
         anim = GetComponentInParent<Animator>();
+        health = PlayerPrefs.GetFloat("HealthKey", maxHealth);
         UpdateHealthUI();
     }
 
@@ -41,6 +42,8 @@ public class PlayerStats : MonoBehaviour
             {
                 GetComponent<PlayerStats>().enabled = false;
                 GetComponentInParent<GatherInput>().DisableControls();
+                PlayerPrefs.SetFloat("HealthKey", maxHealth);
+
                 GameManager.ManagerRestartLevel();
             }
 
@@ -66,5 +69,10 @@ public class PlayerStats : MonoBehaviour
     public void UpdateHealthUI()
     {
         healthUI.fillAmount = health / maxHealth;
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("HealthKey");
     }
 }

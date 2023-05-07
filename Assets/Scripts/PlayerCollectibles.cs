@@ -11,6 +11,7 @@ public class PlayerCollectibles : MonoBehaviour
     public int gemNumber;
     void Start()
     {
+        gemNumber = PlayerPrefs.GetInt("GemNumber", 0);
         UpdateText();
     }
 
