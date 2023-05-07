@@ -39,9 +39,9 @@ public class PlayerStats : MonoBehaviour
             UpdateHealthUI();
             if (health <= 0)
             {
-                Debug.Log("The player is dead");
                 GetComponent<PlayerStats>().enabled = false;
                 GetComponentInParent<GatherInput>().DisableControls();
+                GameManager.ManagerRestartLevel();
             }
 
             StartCoroutine(DamagePrevention());

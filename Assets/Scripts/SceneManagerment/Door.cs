@@ -5,19 +5,27 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public int levelToLoad;
-    public Fader fader;
+    public Sprite unlockedSprite;
+    private BoxCollider2D boxCol;
     void Start()
     {
-        
+        boxCol = GetComponent<BoxCollider2D>();
+        GameManager.RegisterDoor(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GetComponent<BoxCollider2D>().enabled = false;
+            boxCol.enabled = false;
             collision.GetComponent<GatherInput>().DisableControls();
-            fader.SetLevel(levelToLoad);
+            GameManager.ManagerLoadLevel(levelToLoad);
         }
+    }
+
+    public void UnlockDoor()
+    {
+        GetComponent<SpriteRenderer>().sprite = unlockedSprite;
+        boxCol.enabled = true;
     }
 }
