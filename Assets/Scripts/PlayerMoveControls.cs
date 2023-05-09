@@ -22,13 +22,16 @@ public class PlayerMoveControls : MonoBehaviour
     private bool grounded = true;
     public bool knockBack = false;
     public bool hasControl = true;
-
+    public bool onLadders;
+    public float climbSpeed;
+    public float climbHorizontalSpeed;
+    private float startGravity;
     void Start()
     {
         gI = GetComponent<GatherInput>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
+        startGravity = rb.gravityScale;
         resetJumpsNumber = additionalJumps;
     }
 
@@ -50,18 +53,36 @@ public class PlayerMoveControls : MonoBehaviour
     {
         Flip();
         rb.velocity = new Vector2(speed * gI.valueX, rb.velocity.y);
+        if (onLadders)
+        {
+            rb.gravityScale = 0;
+            rb.velocity = new Vector2(climbHorizontalSpeed * gI.valueX, climbSpeed * gI.valueY);
+            if (rb.velocity.y == 0)
+                anim.enabled = false;
+            else
+                anim.enabled = true;
+        }
+    }
+
+    public void ExitLadders()
+    {
+        rb.gravityScale = startGravity;
+        onLadders = false;
+        anim.enabled = true;
     }
 
     public void JumpPlayer()
     {
         if (gI.jumpInput)
         {
-            if (grounded)
+            if (grounded || onLadders)
             {
+                ExitLadders();
                 rb.velocity = new Vector2(gI.valueX * speed, jumpForce);
                 doubleJump = true;
             } else if (additionalJumps > 0)
             {
+                ExitLadders();
                 rb.velocity = new Vector2(gI.valueX * speed, jumpForce);
                 doubleJump = false;
                 additionalJumps -= 1;
@@ -110,6 +131,7 @@ public class PlayerMoveControls : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("vSpeed", rb.velocity.y);
         anim.SetBool("Grounded", grounded);
+        anim.SetBool("Climb", onLadders);
     }
 
     public IEnumerator KnockBack(float forceX, float forceY, float duration, Transform otherObject)

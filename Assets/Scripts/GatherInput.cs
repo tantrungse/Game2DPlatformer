@@ -8,6 +8,8 @@ public class GatherInput : MonoBehaviour
     public float valueX;
     public bool jumpInput;
     public bool tryAttack;
+    public float valueY;
+    public bool tryToClimb;
     private void Awake()
     {
         myControls = new Controls();
@@ -24,6 +26,9 @@ public class GatherInput : MonoBehaviour
         myControls.Player.Attack.performed += TryToAttack;
         myControls.Player.Attack.canceled += StopTryToAttack;
 
+        myControls.Player.Climb.performed += ClimbStart;
+        myControls.Player.Climb.canceled += ClimbStop;
+
         myControls.Player.Enable();
     }
 
@@ -38,6 +43,9 @@ public class GatherInput : MonoBehaviour
         myControls.Player.Attack.performed -= TryToAttack;
         myControls.Player.Attack.canceled -= StopTryToAttack;
 
+        myControls.Player.Climb.performed -= ClimbStart;
+        myControls.Player.Climb.canceled -= ClimbStop;
+
         myControls.Player.Disable();
     }
 
@@ -51,6 +59,9 @@ public class GatherInput : MonoBehaviour
 
         myControls.Player.Attack.performed -= TryToAttack;
         myControls.Player.Attack.canceled -= StopTryToAttack;
+
+        myControls.Player.Climb.performed -= ClimbStart;
+        myControls.Player.Climb.canceled -= ClimbStop;
 
         myControls.Player.Disable();
         valueX = 0;
@@ -85,5 +96,21 @@ public class GatherInput : MonoBehaviour
     private void StopTryToAttack(InputAction.CallbackContext ctx)
     {
         tryAttack = false;
+    }
+
+    private void ClimbStart(InputAction.CallbackContext ctx)
+    {
+        valueY = Mathf.RoundToInt(ctx.ReadValue<float>());
+
+        if (Mathf.Abs(valueY) > 0)
+        {
+            tryToClimb = true;
+        }
+    }
+
+    private void ClimbStop(InputAction.CallbackContext ctx)
+    {
+        valueY = 0;
+        tryToClimb = false;
     }
 }

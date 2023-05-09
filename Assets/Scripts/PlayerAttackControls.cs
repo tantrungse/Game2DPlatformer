@@ -26,7 +26,7 @@ public class PlayerAttackControls : MonoBehaviour
     {
         if (gI.tryAttack)
         {
-            if (attackStarted || moveControls.hasControl == false || moveControls.knockBack)
+            if (attackStarted || moveControls.hasControl == false || moveControls.knockBack || moveControls.onLadders)
                 return;
             anim.SetBool("Attack", true);
             attackStarted = true;

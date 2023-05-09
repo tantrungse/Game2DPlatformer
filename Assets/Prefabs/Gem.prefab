@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085bd5d1866c1b047a3580397ff9ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemParticle: {fileID: 1009880355495109148, guid: ec76c2e84c077f94cae78c402fe520c2, type: 3}
 --- !u!95 &3438835946679048454
 Animator:
   serializedVersion: 5
