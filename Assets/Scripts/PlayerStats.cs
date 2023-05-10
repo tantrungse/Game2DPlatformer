@@ -77,5 +77,6 @@ public class PlayerStats : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.DeleteKey("HealthKey");
+        PlayerPrefs.DeleteKey("GemNumber");
     }
 }
