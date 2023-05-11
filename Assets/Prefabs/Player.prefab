@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65de4e87ddf25b14c9c720e2de83d00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textComponent: {fileID: 0}
   gemNumber: 0
 --- !u!114 &2242691326196937030
 MonoBehaviour:

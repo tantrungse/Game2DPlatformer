@@ -6,9 +6,9 @@
             "id": "a2abe680-7acb-4c69-be29-b8c0764855ef",
             "actions": [
                 {
-                    "name": "Pause",
+                    "name": "New action",
                     "type": "Button",
-                    "id": "98c66579-d1ed-4a83-93f7-18329e6a41a7",
+                    "id": "621d1127-852c-474b-a4b2-c68cf6231c9b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,12 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "51499e65-5e02-4b17-a9a4-42f4a4b99851",
-                    "path": "<Keyboard>/p",
+                    "id": "41c12464-23a8-4f77-9d9a-9a34ab8fb062",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Pause",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

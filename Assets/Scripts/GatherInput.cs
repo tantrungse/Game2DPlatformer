@@ -10,7 +10,6 @@ public class GatherInput : MonoBehaviour
     public bool tryAttack;
     public float valueY;
     public bool tryToClimb;
-    public bool pause = false;
     private void Awake()
     {
         myControls = new Controls();
@@ -68,43 +67,10 @@ public class GatherInput : MonoBehaviour
         valueX = 0;
     }
 
-    public void PauseGame(InputAction.CallbackContext ctx)
-    {
-        pause = !pause;
-        if (pause)
-        {
-            AudioListener.pause = true;
-            myControls.Player.Disable();
-            Time.timeScale = 0;
-        }
-        else
-        {
-            AudioListener.pause = false;
-            myControls.Player.Enable();
-            Time.timeScale = 1;
-        }
-    }
-
-    public void PauseGame()
-    {
-        pause = !pause;
-        if (pause)
-        {
-            AudioListener.pause = true;
-            myControls.Player.Disable();
-            Time.timeScale = 0;
-        }
-        else
-        {
-            AudioListener.pause = false;
-            myControls.Player.Enable();
-            Time.timeScale = 1;
-        }
-    }
-
     private void StartMove(InputAction.CallbackContext ctx)
     {
         valueX = Mathf.RoundToInt(ctx.ReadValue<float>());
+        Debug.Log("ValueX: " + valueX);
     }
 
     private void StopMove(InputAction.CallbackContext ctx)
@@ -147,5 +113,4 @@ public class GatherInput : MonoBehaviour
         valueY = 0;
         tryToClimb = false;
     }
-
 }
