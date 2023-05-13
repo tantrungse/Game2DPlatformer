@@ -22,12 +22,6 @@ public class Fader : MonoBehaviour
         anim.SetTrigger("Fade");
     }
 
-    public void LoadSavedLevel()
-    {
-        levelToLoad = PlayerPrefs.GetInt("SavedLevel", 1);
-        anim.SetTrigger("Fade");
-    }
-
     public void LoadLevel()
     {
         SceneManager.LoadScene(levelToLoad);

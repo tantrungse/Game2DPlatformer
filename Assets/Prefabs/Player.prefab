@@ -501,6 +501,7 @@ MonoBehaviour:
   tryAttack: 0
   valueY: 0
   tryToClimb: 0
+  pause: 0
 --- !u!114 &2242691326196937027
 MonoBehaviour:
   m_ObjectHideFlags: 0
