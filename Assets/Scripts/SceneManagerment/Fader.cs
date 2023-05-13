@@ -22,6 +22,12 @@ public class Fader : MonoBehaviour
         anim.SetTrigger("Fade");
     }
 
+    public void LoadSavedLevel()
+    {
+        levelToLoad = PlayerPrefs.GetInt("SavedLevel", 1);
+        anim.SetTrigger("Fade");
+    }
+
     public void LoadLevel()
     {
         SceneManager.LoadScene(levelToLoad);
@@ -35,5 +41,10 @@ public class Fader : MonoBehaviour
     public void RestartLevel()
     {
         Invoke("Restart", 1.5f);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
