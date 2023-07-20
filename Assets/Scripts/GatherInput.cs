@@ -124,7 +124,6 @@ public class GatherInput : MonoBehaviour
 
     private void TryToAttack(InputAction.CallbackContext ctx)
     {
-        if (Pause)
         tryAttack = true;
     }
 

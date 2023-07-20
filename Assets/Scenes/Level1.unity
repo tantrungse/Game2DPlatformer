@@ -248,6 +248,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235fadf7d1ae7674db3e05d42c7d6fa2, type: 3}
+--- !u!114 &25593564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6413158550501348103, guid: 235fadf7d1ae7674db3e05d42c7d6fa2, type: 3}
+  m_PrefabInstance: {fileID: 25593563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &46123316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,17 +316,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 491e9c07ab9bb864f8fbe029e4d6d429, type: 3}
---- !u!114 &218403942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6413158551322996338, guid: 235fadf7d1ae7674db3e05d42c7d6fa2, type: 3}
-  m_PrefabInstance: {fileID: 25593563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &250357304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2242691326196937033, guid: de8eb9a27df8cf94cb65fe61ef5d17b9, type: 3}
@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.01, y: 0.6300006, z: -10}
+  m_LocalPosition: {x: -1.2644348, y: 0.74096346, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4647,7 +4647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1546026474}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1001 &2069281603
@@ -4660,7 +4660,7 @@ PrefabInstance:
     - target: {fileID: 2242691324230477488, guid: de8eb9a27df8cf94cb65fe61ef5d17b9, type: 3}
       propertyPath: healthUI
       value: 
-      objectReference: {fileID: 218403942}
+      objectReference: {fileID: 25593564}
     - target: {fileID: 2242691326196937033, guid: de8eb9a27df8cf94cb65fe61ef5d17b9, type: 3}
       propertyPath: m_RootOrder
       value: 15

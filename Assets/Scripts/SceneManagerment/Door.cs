@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -26,8 +27,19 @@ public class Door : MonoBehaviour
             PlayerCollectibles playerCollectibles = collision.GetComponent<PlayerCollectibles>();
             PlayerPrefs.SetInt("GemNumber", playerCollectibles.gemNumber);
 
+            if (isLoadMainMenu(levelToLoad)) {
+                PlayerPrefs.DeleteKey("HealthKey");
+                PlayerPrefs.DeleteKey("GemNumber");
+            }
             GameManager.ManagerLoadLevel(levelToLoad);
         }
+    }
+
+    bool isLoadMainMenu(int levelToLoad)
+    {
+        if (levelToLoad == 0)
+            return true;
+        return false;
     }
 
     public void UnlockDoor()
